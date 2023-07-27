@@ -5,3 +5,13 @@ set client_min_messages to warning;
 drop schema "public" cascade;
 
 create schema "public";
+
+create table "public"."eats" (
+  "productId"        serial,
+  "name"             text    not null,
+  "price"            integer not null,
+  "imageUrl"         text    not null,
+  "shortDescription" text    not null,
+  "longDescription"  text    not null,
+  primary key ("productId")
+)
