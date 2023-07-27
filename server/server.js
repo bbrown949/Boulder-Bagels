@@ -35,7 +35,7 @@ app.get('/api/hello', (req, res) => {
  * When navigating in the client, if the user refreshes the page, the browser will send
  * the URL to this Express server instead of to React Router.
  * Catching everything that doesn't match a route and serving index.html allows
- * React Router to manage the routing.
+ * React Routtter to manage the routing.
  */
 app.get('*', (req, res) => res.sendFile(`${reactStaticDir}/index.html`));
 
