@@ -6,7 +6,7 @@ drop schema "public" cascade;
 
 create schema "public";
 
-create table "public"."eats" (
+create table "public"."products" (
   "productId"        serial,
   "name"             text    not null,
   "price"            integer not null,

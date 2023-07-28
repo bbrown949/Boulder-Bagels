@@ -1,29 +1,38 @@
-import { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { useEffect, useState } from 'react';
+// import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/navbar';
+import Shop from './pages/shop/shop';
+import Cart from './pages/cart/cart';
 
 function App() {
-  const [serverData, setServerData] = useState('');
+  // const [serverData, setServerData] = useState('');
 
-  useEffect(() => {
-    async function readServerData() {
-      const resp = await fetch('/api/hello');
-      const data = await resp.json();
+  // useEffect(() => {
+  //   async function readServerData() {
+  //     const resp = await fetch('/api/hello');
+  //     const data = await resp.json();
 
-      console.log('Data from server:', data);
+  //     console.log('Data from server:', data);
 
-      setServerData(data.message);
-    }
+  //     setServerData(data.message);
+  //   }
 
-    readServerData();
-  }, []);
+  //   readServerData();
+  // }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>{serverData}</h1>
-      </header>
+      </header> */}
     </div>
   );
 }
