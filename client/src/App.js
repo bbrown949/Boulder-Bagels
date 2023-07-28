@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
 import Shop from './pages/shop/shop';
 import Cart from './pages/cart/cart';
+import { ShopContexProvider } from './context/shop-context';
 
 function App() {
   // const [serverData, setServerData] = useState('');
@@ -23,11 +24,13 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+      <ShopContexProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </ShopContexProvider>
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
