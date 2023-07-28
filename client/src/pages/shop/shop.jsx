@@ -1,5 +1,6 @@
 import React from 'react';
 import { PRODUCTS } from '../../products';
+// import { fetchProduct } from '../api';
 import Product from './product';
 import './shop.css';
 
