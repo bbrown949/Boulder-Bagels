@@ -1,9 +1,15 @@
 // import { useEffect, useState } from 'react';
 // import './App.css';
+// import Shop from './pages/shop/shop';
+// import Cart from './pages/cart/cart';
+// import { ShopContexProvider } from './context/shop-context';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
-import Shop from './pages/shop/shop';
-import Cart from './pages/cart/cart';
+
+import FoodMenu from './pages/shop/FoodMenu';
+import ProductDetails from './pages/shop/ProductDetailsPage';
+import About from './pages/About';
+import CartPage from './pages/cart/CartPage';
 
 function App() {
   // const [serverData, setServerData] = useState('');
@@ -23,16 +29,16 @@ function App() {
 
   return (
     <div className="App">
+      {/* <ShopContexProvider> */}
       <NavBar />
       <Routes>
-        <Route path="/" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/:productId" element={<ProductDetails />} />
+        <Route path="/eats" element={<FoodMenu />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/" />
       </Routes>
-
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>{serverData}</h1>
-      </header> */}
+      {/* </ShopContexProvider> */}
     </div>
   );
 }

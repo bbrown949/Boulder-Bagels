@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
+import ClientError from './lib/client-error.js';
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
@@ -22,8 +23,70 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello, World!' });
+//  fetchProducts server call
+app.get('/api/products', async (req, res, next) => {
+  try {
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (e) {
+    next(e);
+  }
+});
+
+//  fetchProduct server call (productId)
+app.get('/api/products/:productId', async (req, res, next) => {
+  try {
+    const productId = Number(req.params.productId);
+    if (!productId) {
+      throw new ClientError(400, 'productId must be a positive integer');
+    }
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"
+    where "productId" = $1`;
+    const params = [productId];
+    const result = await db.query(sql, params);
+    if (!result.rows[0])
+      throw new ClientError(
+        404,
+        `cannot find product with productId ${productId}`
+      );
+    res.json(result.rows[0]);
+  } catch (e) {
+    next(e);
+  }
+});
+
+// addToCart server call
+app.post('/api/cart/:productId', async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const { productId, quantity, cartId } = req.body;
+    if (!productId || !quantity)
+      throw new ClientError(400, 'please select a valid product and quantity');
+    const sql = `
+    insert into "shoppingCartItems" ("productId", "quantity", "cartId")
+    values ($1, $2, $3)
+    `;
+    const params = [productId, quantity, cartId];
+    const result = await db.query(sql, params);
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
