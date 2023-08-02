@@ -1,24 +1,16 @@
-// import Container from 'react-bootstrap/Container';
-// import Image from 'react-bootstrap/Image';
-// import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
-// import AppContext from '../../components/AppContext';
-import { fetchProduct, toDollars } from '../../lib';
+import { toDollars } from '../lib';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { addToCart } from '../../lib/addToCart';
-// import { toDollars } from '../../lib/to-dollars';
+import { fetchProduct } from '../lib';
+import { addToCart } from '../lib/addToCart';
+import './ProductDetailsPage.css';
 
-import './ProductDetails.css';
-
-export default function ProductDetails() {
+export default function ProductDetailsPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
-  // let [quantity, setQuantity] = useState(1);
-  // const { cart, user } = useContext(AppContext);
   const navigate = useNavigate();
-  // const [cart, setCart] = useState();
 
   useEffect(() => {
     async function loadProduct(productId) {
@@ -50,7 +42,7 @@ export default function ProductDetails() {
 
   async function handleAddToCart() {
     try {
-      await addToCart(productId, 1);
+      await addToCart(productId, 1, 2);
     } catch (err) {
       setError(err);
     }

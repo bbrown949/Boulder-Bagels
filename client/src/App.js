@@ -1,44 +1,24 @@
-// import { useEffect, useState } from 'react';
 // import './App.css';
-// import Shop from './pages/shop/shop';
-// import Cart from './pages/cart/cart';
-// import { ShopContexProvider } from './context/shop-context';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
-
-import FoodMenu from './pages/shop/FoodMenu';
-import ProductDetails from './pages/shop/ProductDetailsPage';
+import Catalog from './pages/shop/FoodMenu';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 import About from './pages/About';
+// import CartPage from './pages/cart/CartPage';
 import CartPage from './pages/cart/CartPage';
+import HomePage from './pages/Home';
 
 function App() {
-  // const [serverData, setServerData] = useState('');
-
-  // useEffect(() => {
-  //   async function readServerData() {
-  //     const resp = await fetch('/api/hello');
-  //     const data = await resp.json();
-
-  //     console.log('Data from server:', data);
-
-  //     setServerData(data.message);
-  //   }
-
-  //   readServerData();
-  // }, []);
-
   return (
     <div className="App">
-      {/* <ShopContexProvider> */}
       <NavBar />
       <Routes>
         <Route path="/about" element={<About />} />
-        <Route path="/:productId" element={<ProductDetails />} />
-        <Route path="/eats" element={<FoodMenu />} />
+        <Route path="/:productId" element={<ProductDetailsPage />} />
+        <Route path="/eats" element={<Catalog />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/" />
+        <Route path="/" element={<HomePage />} />
       </Routes>
-      {/* </ShopContexProvider> */}
     </div>
   );
 }

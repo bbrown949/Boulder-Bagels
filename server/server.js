@@ -36,8 +36,8 @@ app.get('/api/products', async (req, res, next) => {
     from "products"`;
     const result = await db.query(sql);
     res.json(result.rows);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -65,17 +65,16 @@ app.get('/api/products/:productId', async (req, res, next) => {
         `cannot find product with productId ${productId}`
       );
     res.json(result.rows[0]);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
 // addToCart server call
-app.post('/api/cart/:productId', async (req, res, next) => {
+app.post('/api/cart/:cartId', async (req, res, next) => {
   try {
-    console.log(req.body);
     const { productId, quantity, cartId } = req.body;
-    if (!productId || !quantity)
+    if (!productId || !quantity || !cartId)
       throw new ClientError(400, 'please select a valid product and quantity');
     const sql = `
     insert into "shoppingCartItems" ("productId", "quantity", "cartId")
@@ -83,7 +82,25 @@ app.post('/api/cart/:productId', async (req, res, next) => {
     `;
     const params = [productId, quantity, cartId];
     const result = await db.query(sql, params);
-    res.json(result.rows);
+    res.status(201).json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// cartItems server call
+app.get('/api/shoppingCartItems/:cartId', async (req, res, next) => {
+  const cart = req.params.cartId;
+  try {
+    const sql = `
+    select *
+    from "products"
+    join "shoppingCartItems" using ("productId")
+    where "cartId" = $1
+   `;
+    const params = [...cart];
+    const result = await db.query(sql, params);
+    res.status(200).json(result.rows);
   } catch (err) {
     next(err);
   }

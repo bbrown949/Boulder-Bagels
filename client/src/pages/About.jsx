@@ -1,28 +1,32 @@
+import React from 'react';
+import MultiplePizzas from '../assets/BB.png';
 import './About.css';
-
-export default function About() {
+function About() {
   return (
     <div className="about">
-      <div className="text">
+      <div
+        className="aboutTop"
+        style={{ backgroundImage: `url(${MultiplePizzas})` }}></div>
+      <div className="aboutBottom">
+        <h1> ABOUT US</h1>
         <p>
-          Bryan Brown has been an Erie resident for about two and a half years,
-          and is no stranger to Boulder County. He is a CU alumni, and has
-          always loved the Boulder area. That’s what gave him the idea for the
-          name “Boulder Bagels” – “Since attending college in Boulder, I always
-          really liked the area, and when I started thinking about my bagel
-          business, the name really stuck out to me and conveniently no one
-          owned it yet.” This
-          east-coast-style-bagel-meets-west-coast-authenticity company has only
-          been in business for a few weeks so far, and their product is already
-          busting through the doors of Erie residents, with them filling 45
-          orders on their opening weekend. “We gained attention very quickly and
-          are thrilled with the response from the community. It’s been a lot of
-          work, but we are having so much fun building the business.” Since
-          then, they have hired a driver to help with delivering to ensure that
-          he and his partner can focus on getting everything out the door fresh
-          and on-time!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
+          accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
+          molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
+          officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
+          nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque
+          error repudiandae fuga? Ipsa laudantium molestias eos sapiente
+          officiis modi at sunt excepturi expedita sint? Sed quibusdam
+          recusandae alias error harum maxime adipisci amet laborum.
+          Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a
+          cumque velit
         </p>
       </div>
     </div>
   );
 }
+
+export default About;
