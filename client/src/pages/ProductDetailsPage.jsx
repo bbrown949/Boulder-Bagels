@@ -1,24 +1,19 @@
-// import Container from 'react-bootstrap/Container';
-// import Image from 'react-bootstrap/Image';
-// import Button from 'react-bootstrap/Button';
-import { useEffect, useState } from 'react';
-// import AppContext from '../../components/AppContext';
-import { fetchProduct, toDollars } from '../../lib';
+import { useEffect, useState, useContext } from 'react';
+import { toDollars } from '../lib';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { addToCart } from '../../lib/addToCart';
-// import { toDollars } from '../../lib/to-dollars';
+import { fetchProduct, addItemQuantity } from '../lib';
+import { addToCart } from '../lib/addToCart';
+import './ProductDetailsPage.css';
+import AppContext from '../components/AppContext';
 
-import './ProductDetails.css';
-
-export default function ProductDetails() {
+export default function ProductDetailsPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
-  // let [quantity, setQuantity] = useState(1);
-  // const { cart, user } = useContext(AppContext);
   const navigate = useNavigate();
-  // const [cart, setCart] = useState();
+  let [quantity, setQuantity] = useState(1);
+  const { user } = useContext(AppContext);
 
   useEffect(() => {
     async function loadProduct(productId) {
@@ -45,14 +40,27 @@ export default function ProductDetails() {
       </div>
     );
   }
+  function incrementQuantity() {
+    quantity = quantity + 1;
+    if (quantity > 3) setQuantity((quantity = 3));
+    setQuantity(quantity);
+  }
+  function decrementQuantity() {
+    quantity = quantity - 1;
+    if (quantity < 1) setQuantity((quantity = 1));
+    setQuantity(quantity);
+  }
+  if (isLoading) return <div>Loading...</div>;
+
   if (!product) return null;
   const { productName, price, imageUrl, longDescription } = product;
 
   async function handleAddToCart() {
     try {
-      await addToCart(productId, 1);
-    } catch (err) {
-      setError(err);
+      await addToCart(productId, quantity, user.customerId);
+      await addItemQuantity(user.customerId, productId, quantity);
+    } catch (e) {
+      setError(e);
     }
   }
   return (
@@ -78,11 +86,24 @@ export default function ProductDetails() {
           </div>
           <div className="row">
             <div className="col">
+              <div className="space-between">
+                {quantity === 3 && (
+                  <div className="qty-limit-txt">limit: 3 per customer</div>
+                )}
+                <button className="counter-btn" onClick={decrementQuantity}>
+                  -
+                </button>
+                <div className="count">{quantity}</div>
+                <div>
+                  <button className="counter-btn" onClick={incrementQuantity}>
+                    +
+                  </button>
+                </div>
+              </div>
               <div>
                 <button className="btn" onClick={handleAddToCart}>
                   Add to cart
                 </button>
-
                 <button
                   className="btn"
                   variant="success"

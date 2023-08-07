@@ -20,3 +20,8 @@
 .long-description {
   white-space: pre-wrap;
 }
+
+.addSubtract {
+  display: flex;
+  flex-direction: row;
+}
