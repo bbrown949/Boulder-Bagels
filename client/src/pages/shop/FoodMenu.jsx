@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchCatalog, toDollars } from '../../lib';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 import './FoodMenu.css';
 
 export default function FoodMenu() {
@@ -26,18 +30,18 @@ export default function FoodMenu() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error Loading Menu: {error.message}</div>;
   return (
-    <div className="container">
+    <Container className="food-container">
       <div className="menu-header">
-        <h2>EATS</h2>
+        <h2 className="eats-header">Food Menu</h2>
       </div>
-      <div className="row">
+      <Row className="row">
         {products?.map((product) => (
-          <div key={product.productId} className="col-12 col-md-6 col-lg-4">
+          <Col key={product.productId} className="col-12 col-md-6 col-lg-4">
             <Product product={product} />
-          </div>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 

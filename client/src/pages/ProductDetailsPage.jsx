@@ -3,6 +3,11 @@ import { toDollars } from '../lib';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchProduct, addItemQuantity } from '../lib';
 import { addToCart } from '../lib/addToCart';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 import './ProductDetailsPage.css';
 import AppContext from '../components/AppContext';
 
@@ -59,23 +64,23 @@ export default function ProductDetailsPage() {
     try {
       await addToCart(productId, quantity, user.customerId);
       await addItemQuantity(user.customerId, productId, quantity);
-    } catch (e) {
-      setError(e);
+    } catch (err) {
+      setError(err);
     }
   }
   return (
-    <div className="detailsContainer">
+    <Container className="detailsContainer">
       <div className="card shadow-sm">
         <div className="card-body">
-          <div className="row">
+          <Row className="row">
             <div className="col">
               <Link to="/eats" className="btn text-secondary">
                 Back to eats
               </Link>
             </div>
-          </div>
+          </Row>
           <div className="row mb-4">
-            <div className="col-12 col-sm-6 col-md-5">
+            <div className="">
               <img src={imageUrl} alt={productName} className="image" />
             </div>
             <div className="col-12 col-sm-6 col-md-7">
@@ -84,37 +89,35 @@ export default function ProductDetailsPage() {
               <p>{longDescription}</p>
             </div>
           </div>
-          <div className="row">
-            <div className="col">
+          <Row className="row">
+            <Col className="quantity-col">
               <div className="space-between">
                 {quantity === 3 && (
                   <div className="qty-limit-txt">limit: 3 per customer</div>
                 )}
-                <button className="counter-btn" onClick={decrementQuantity}>
-                  -
-                </button>
-                <div className="count">{quantity}</div>
-                <div>
-                  <button className="counter-btn" onClick={incrementQuantity}>
-                    +
-                  </button>
-                </div>
+                <Row>
+                  <Button className="counter-btn" onClick={decrementQuantity}>
+                    -
+                  </Button>
+                  <div className="count">{quantity}</div>
+                  <div>
+                    <Button className="counter-btn" onClick={incrementQuantity}>
+                      +
+                    </Button>
+                  </div>
+                </Row>
               </div>
               <div>
-                <button className="btn" onClick={handleAddToCart}>
-                  Add to cart
-                </button>
-                <button
-                  className="btn"
-                  variant="success"
-                  onClick={() => navigate('../cart')}>
-                  Go to cart
-                </button>
+                <Link to="../cart">
+                  <Button className="btn" onClick={handleAddToCart}>
+                    Add to cart
+                  </Button>
+                </Link>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }

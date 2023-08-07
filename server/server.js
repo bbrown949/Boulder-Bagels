@@ -78,7 +78,7 @@ app.post('/api/cart/:cartId', async (req, res, next) => {
   try {
     const { productId, quantity, cartId } = req.body;
     if (!productId || !quantity || !cartId)
-      throw new ClientError(400, 'please select a valid product and quantity');
+      throw new ClientError(400, 'please select product and quantity');
     const sql = `
     insert into "shoppingCartItems" ("productId", "quantity", "cartId")
     values ($1, $2, $3)
@@ -109,7 +109,7 @@ app.get('/api/shoppingCartItems/:cartId', async (req, res, next) => {
   }
 });
 
-// clears a specific item from cart
+// deletes item from cart
 app.delete('/api/delete/:cartId/:productId', async (req, res, next) => {
   try {
     const { cartId, productId } = req.body;
@@ -120,8 +120,8 @@ app.delete('/api/delete/:cartId/:productId', async (req, res, next) => {
     const params = [cartId, productId];
     await db.query(sql, params);
     res.status(204);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -140,8 +140,8 @@ app.patch('/api/cart/:cartId', async (req, res, next) => {
     const params = [productId, quantity, cartId];
     const result = await db.query(sql, params);
     res.status(201).json(result.rows);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -170,8 +170,8 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
     const cartParams = [userResult.rows[0].customerId];
     await db.query(cartSql, cartParams);
     res.status(201).json(user);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -220,8 +220,8 @@ app.get('/api/customers/:username', async (req, res, next) => {
     const params = [user];
     const result = await db.query(sql, params);
     res.status(200).json(result.rows[0]);
-  } catch (e) {
-    next(e);
+  } catch (err) {
+    next(err);
   }
 });
 

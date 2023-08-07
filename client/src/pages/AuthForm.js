@@ -24,7 +24,7 @@ export default function AuthForm({ action, onSignIn }) {
 
   const alternateActionTo = action === 'sign-up' ? '/sign-in' : '/sign-up';
   const alternateActionText =
-    action === 'sign-up' ? 'Sign in instead' : 'Register now';
+    action === 'sign-up' ? 'Sign in instead' : 'Register now!';
   const submitButtonText = action === 'sign-up' ? 'Register' : 'Log In';
   return (
     <form className="w-100" onSubmit={handleSubmit}>
@@ -57,11 +57,14 @@ export default function AuthForm({ action, onSignIn }) {
             {alternateActionText}
           </Link>
         </small>
+        <div></div>
         <button type="submit" className="btn btn-primary">
           {submitButtonText}
         </button>
       </div>
-      {error && <div style={{ color: 'red' }}>Error: {error.message}</div>}
+      {error && (
+        <div style={{ color: 'red' }}>Error: Invalid Username or password.</div>
+      )}
     </form>
   );
 }

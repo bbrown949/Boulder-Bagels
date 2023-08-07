@@ -11,24 +11,27 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="links">
-        <Link to="./eats">Eats</Link>
-        <Link to="./drinks">Drinks</Link>
-        <Link to="./about">About</Link>
-        <img className="bblogo" src={bbLogo} alt="logo"></img>
-
-        <Link to="./cart">
-          <ShoppingCart size={32} />
-        </Link>
-        <Link to="./sign-in">
-          <button type="button" className="entries-link white-text">
-            Sign In
-          </button>
-        </Link>
-        <Link to="./sign-out" onClick={handleSignOut}>
-          <button type="button" className="entries-link white-text">
-            Sign Out
-          </button>
-        </Link>
+        <div className="col-one">
+          <img className="bblogo" src={bbLogo} alt="logo"></img>
+        </div>
+        <div className="col-two">
+          <Link to="./eats">Eats</Link>
+          <Link to="./drinks">Drinks</Link>
+          <Link to="./about">About</Link>
+          <Link to="./cart">
+            <ShoppingCart size={32} />
+          </Link>
+          <Link to="./sign-in">
+            <button type="button" className="sign-in-btn">
+              Sign In
+            </button>
+          </Link>
+          <Link to="./" onClick={handleSignOut}>
+            <button type="button" className="sign-out-btn">
+              Sign Out
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

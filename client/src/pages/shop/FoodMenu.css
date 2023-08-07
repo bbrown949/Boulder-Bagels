@@ -18,7 +18,7 @@
   flex-basis: calc(100% / 3);
   width: 100%;
   height: auto;
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
 }
@@ -51,4 +51,11 @@
 .product:hover {
   transition: 0.3s ease-in;
   cursor: pointer;
+}
+
+.eats-header {
+  /* font-family: 'Bubblegum Sans', cursive; */
+  color: red;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 2px black;
 }

@@ -35,47 +35,16 @@ CREATE TABLE "shoppingCart" (
 
 
 
-CREATE TABLE "orders" (
-	"orderId" serial NOT NULL,
-	"cartId" int NOT NULL,
-	CONSTRAINT "orders_pk" PRIMARY KEY ("orderId")
-) WITH (
-  OIDS=FALSE
-);
-
-
-
 CREATE TABLE "shoppingCartItems" (
 	"productId" int NOT NULL,
   "quantity" int NOT NULL,
 	"cartId" int NOT NULL,
-	CONSTRAINT "shoppingCartItems_pk" PRIMARY KEY ("cartId")
+	CONSTRAINT "shoppingCartItems_pk" PRIMARY KEY ("cartId", "productId")
 ) WITH (
   OIDS=FALSE
 );
-
-
-
-CREATE TABLE "orderItems" (
-	"productName" TEXT NOT NULL,
-	"price" real NOT NULL,
-	"description" real NOT NULL,
-	"categoryName" real NOT NULL,
-	"orderId" int NOT NULL
-) WITH (
-  OIDS=FALSE
-);
-
-
-
 
 
 ALTER TABLE "shoppingCart" ADD CONSTRAINT "shoppingCart_fk0" FOREIGN KEY ("customerId") REFERENCES "customers"("customerId");
-
-ALTER TABLE "orders" ADD CONSTRAINT "orders_fk0" FOREIGN KEY ("cartId") REFERENCES "shoppingCart"("cartId");
-
-
 ALTER TABLE "shoppingCartItems" ADD CONSTRAINT "shoppingCartItems_fk0" FOREIGN KEY ("productId") REFERENCES "products"("productId");
 ALTER TABLE "shoppingCartItems" ADD CONSTRAINT "shoppingCartItems_fk1" FOREIGN KEY ("cartId") REFERENCES "shoppingCart"("cartId");
-
-ALTER TABLE "orderItems" ADD CONSTRAINT "orderItems_fk0" FOREIGN KEY ("orderId") REFERENCES "orders"("orderId");

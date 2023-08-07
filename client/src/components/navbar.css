@@ -1,20 +1,31 @@
-/* * {
-  width: 100%;
-} */
-
 .navbar {
+  margin: auto;
   width: 100%;
-  height: 80px;
   background-color: rgb(19, 19, 19);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-basis: calc(100% / 2);
+  padding-left: 30px;
+
+  /* justify-content: center;
+  align-items: center; */
+  height: auto;
 }
+
+/* flex-wrap: wrap;
+flex-basis: calc(100% / 3);
+width: 100%;
+height: auto;
+display: flex;
+grid-template-columns: 1fr 1fr 1fr;
+place-items: center; */
 
 .links {
   margin-right: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  text-align: right !important;
+  float: right;
 }
 
 .links a {
@@ -27,10 +38,59 @@
 .bbLogo {
   text-decoration: none;
   color: white;
-  margin-left: 20px;
-  font-size: 25px;
+  padding-left: 40px;
 }
 
 h1 {
   color: white;
+}
+
+.col-one {
+  display: flex;
+  color: red;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.col-two {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.col-three {
+  display: flex;
+  flex: end;
+}
+
+/* img {
+  padding-left: 30px;
+  padding-right: 20px;
+} */
+
+.sign-in-btn {
+  letter-spacing: 3px;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+
+  /* padding: 5px; */
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 20px;
+
+  /* color: red; */
+
+  /* text-shadow: 1px 1px 1px black; */
+}
+
+.sign-out-btn {
+  letter-spacing: 3px;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 20px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }
