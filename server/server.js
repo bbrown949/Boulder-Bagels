@@ -3,6 +3,9 @@ import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
 import ClientError from './lib/client-error.js';
+import argon2 from 'argon2';
+import jwt from 'jsonwebtoken';
+// import { authorizationMiddleware } from './lib/authorization-middleware.js';
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
@@ -103,6 +106,122 @@ app.get('/api/shoppingCartItems/:cartId', async (req, res, next) => {
     res.status(200).json(result.rows);
   } catch (err) {
     next(err);
+  }
+});
+
+// clears a specific item from cart
+app.delete('/api/delete/:cartId/:productId', async (req, res, next) => {
+  try {
+    const { cartId, productId } = req.body;
+    const sql = `
+    delete
+    from "shoppingCartItems"
+    where "cartId" = $1 and "productId" = $2`;
+    const params = [cartId, productId];
+    await db.query(sql, params);
+    res.status(204);
+  } catch (e) {
+    next(e);
+  }
+});
+
+// relates to addItemQuantity server call
+app.patch('/api/cart/:cartId', async (req, res, next) => {
+  try {
+    const { cartId, productId, quantity } = req.body;
+    if (!quantity)
+      throw new ClientError(400, 'please select a value between 1 and 3');
+    const sql = `
+    update "shoppingCartItems"
+    set "quantity" = $3
+    where "productId" = $2 and "cartId" = $1
+    ;
+    `;
+    const params = [productId, quantity, cartId];
+    const result = await db.query(sql, params);
+    res.status(201).json(result.rows);
+  } catch (e) {
+    next(e);
+  }
+});
+
+/// //
+
+app.post('/api/auth/sign-up', async (req, res, next) => {
+  try {
+    const { username, password } = req.body;
+    console.log(req.body);
+    if (!username || !password)
+      throw new ClientError(400, 'username and password are required fields');
+    const hashedPassword = await argon2.hash(password);
+    const sql = `insert into "customers" ("username", "hashedPassword")
+    values ($1, $2)
+    returning
+      "customerId",
+    "username",
+    "createdAt";
+    `;
+    const userParams = [username, hashedPassword];
+    const userResult = await db.query(sql, userParams);
+    const [user] = userResult.rows;
+    const cartSql = `insert into "shoppingCart" ("customerId", "cartId")
+    values($1, $1);
+    `;
+    const cartParams = [userResult.rows[0].customerId];
+    await db.query(cartSql, cartParams);
+    res.status(201).json(user);
+  } catch (e) {
+    next(e);
+  }
+});
+
+// relates to sign in server call
+app.post('/api/auth/sign-in', async (req, res, next) => {
+  try {
+    const { username, password } = req.body;
+    if (!username || !password) throw new ClientError(401, 'invalid login');
+
+    const sql = `
+      select "customerId",
+            "hashedPassword"
+        from "customers"
+        where "username" = $1
+    `;
+    const params = [username];
+    const result = await db.query(sql, params);
+    const [user] = result.rows;
+    if (!user) {
+      throw new ClientError(401, 'invalid login');
+    }
+    const { userId, hashedPassword } = user;
+    const isMatching = await argon2.verify(hashedPassword, password);
+    if (!isMatching) {
+      throw new ClientError(401, 'invalid login');
+    }
+    const payload = { userId, username };
+    const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+    res.status(201).json({ token, user: payload });
+  } catch (err) {
+    next(err);
+  }
+});
+
+///
+
+app.get('/api/customers/:username', async (req, res, next) => {
+  const user = req.params.username;
+  if (!user) throw new ClientError(400, 'user not found');
+  try {
+    const sql = `
+    select "customerId",
+    "username"
+    from "customers"
+    where "username" = $1;`;
+    const params = [user];
+    const result = await db.query(sql, params);
+    res.status(200).json(result.rows[0]);
+  } catch (e) {
+    next(e);
   }
 });
 

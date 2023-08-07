@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchCatalog, toDollars } from '../../lib';
 import './FoodMenu.css';
 
-export default function Catalog() {
+export default function FoodMenu() {
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
