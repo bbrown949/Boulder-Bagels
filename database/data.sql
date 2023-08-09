@@ -59,4 +59,11 @@ insert into "products" (
   '/images/006.png',
   'short description',
   'Breakfast really doesnt get more perfect - or classic - than this! Top your favorite bagel with a bit of shmear, some crunchy red onion, a few savory capers, slices of bright, fresh tomato and our mild, luscious and cold-smoked Nova Lox salmon.'
+), (
+  'Fresh Squeezed OJ',
+  299,
+  'drink',
+  '/images/orange.png',
+  'short description',
+  'Breakfast really doesnt get more perfect - or classic - than this! Top your favorite bagel with a bit of shmear, some crunchy red onion, a few savory capers, slices of bright, fresh tomato and our mild, luscious and cold-smoked Nova Lox salmon.'
 )

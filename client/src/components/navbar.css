@@ -3,7 +3,6 @@
   width: 100%;
   background-color: rgb(19, 19, 19);
   display: flex;
-  flex-basis: calc(100% / 2);
   padding-left: 30px;
 
   /* justify-content: center;
@@ -20,12 +19,11 @@ grid-template-columns: 1fr 1fr 1fr;
 place-items: center; */
 
 .links {
+  margin: 0;
   margin-right: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-align: right !important;
-  float: right;
 }
 
 .links a {

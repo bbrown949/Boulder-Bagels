@@ -12,12 +12,14 @@ export default function Navbar() {
     <div className="navbar">
       <div className="links">
         <div className="col-one">
-          <img className="bblogo" src={bbLogo} alt="logo"></img>
+          <Link to="./">
+            <img className="bblogo" src={bbLogo} alt="logo"></img>
+          </Link>
         </div>
         <div className="col-two">
           <Link to="./eats">Eats</Link>
           <Link to="./drinks">Drinks</Link>
-          <Link to="./about">About</Link>
+          <Link to="./about">Press</Link>
           <Link to="./cart">
             <ShoppingCart size={32} />
           </Link>

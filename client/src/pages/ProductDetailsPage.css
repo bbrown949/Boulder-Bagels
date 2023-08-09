@@ -20,6 +20,7 @@
 
 .long-description {
   white-space: pre-wrap;
+  max-width: 500px;
 }
 
 .addSubtract {
@@ -35,4 +36,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.details-container {
+  padding-left: 20px;
 }

@@ -3,6 +3,7 @@
   height: 90vh;
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }
 
 .aboutTop {
@@ -29,10 +30,21 @@
 
 .about .aboutBottom h1 {
   font-weight: 400;
-  font-size: 70px;
+  font-size: 50px;
   color: black;
-  height: 30px;
+  height: 0;
   display: flex;
   justify-content: center;
   transform: translateY(-40px);
+}
+
+.farmers-image {
+  height: 600px;
+  border-radius: 15px;
+  border: 5px solid rgb(19, 19, 19);
+}
+
+.events-image {
+  height: 600px;
+  border-radius: 15px;
 }

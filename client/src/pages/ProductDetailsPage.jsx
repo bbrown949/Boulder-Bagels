@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { toDollars } from '../lib';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchProduct, addItemQuantity } from '../lib';
 import { addToCart } from '../lib/addToCart';
 import Container from 'react-bootstrap/Container';
@@ -16,7 +16,6 @@ export default function ProductDetailsPage() {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
-  const navigate = useNavigate();
   let [quantity, setQuantity] = useState(1);
   const { user } = useContext(AppContext);
 
@@ -83,10 +82,10 @@ export default function ProductDetailsPage() {
             <div className="">
               <img src={imageUrl} alt={productName} className="image" />
             </div>
-            <div className="col-12 col-sm-6 col-md-7">
+            <div className="details-container">
               <h2>{productName}</h2>
               <h5 className="text-secondary">{toDollars(price)}</h5>
-              <p>{longDescription}</p>
+              <p className="long-description">{longDescription}</p>
             </div>
           </div>
           <Row className="row">

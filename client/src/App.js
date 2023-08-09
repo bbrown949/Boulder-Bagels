@@ -6,13 +6,12 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import About from './pages/About';
 import CartPage from './pages/cart/CartPage';
 import HomePage from './pages/Home';
-// import SignIn from './pages/Sign-in';
 import Signup from './pages/Sign-up';
 import AuthPage from './pages/AuthPage';
-////
 import { useState, useEffect } from 'react';
 import { fetchUser, fetchCartItems } from './lib';
 import AppContext from './components/AppContext';
+import DrinkMenu from './pages/shop/DrinkMenu';
 const tokenKey = 'react-context-jwt';
 
 function App() {
@@ -68,6 +67,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/:productId" element={<ProductDetailsPage />} />
           <Route path="/eats" element={<FoodMenu />} />
+          <Route path="/drinks" element={<DrinkMenu />} />
           <Route path="sign-up" element={<Signup />} />
           <Route path="sign-in" element={<AuthPage action="sign-in" />} />
           <Route path="/cart" element={<CartPage />} />

@@ -27,7 +27,7 @@ app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
 //  fetchProducts server call
-app.get('/api/products', async (req, res, next) => {
+app.get('/api/foodProducts', async (req, res, next) => {
   try {
     const sql = `
     select "productId",
@@ -36,7 +36,26 @@ app.get('/api/products', async (req, res, next) => {
     "imageUrl",
     "description",
     "longDescription"
-    from "products"`;
+    from "products"
+    where "category"='sandwhich'`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/api/drinkProducts', async (req, res, next) => {
+  try {
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"
+    where "category"='drink'`;
     const result = await db.query(sql);
     res.json(result.rows);
   } catch (err) {
@@ -220,6 +239,36 @@ app.get('/api/customers/:username', async (req, res, next) => {
     const params = [user];
     const result = await db.query(sql, params);
     res.status(200).json(result.rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+///
+
+app.get('/api/drinkProducts/:productId', async (req, res, next) => {
+  try {
+    const productId = Number(req.params.productId);
+    if (!productId) {
+      throw new ClientError(400, 'productId must be a positive integer');
+    }
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "drinkProducts"
+    where "productId" = $1`;
+    const params = [productId];
+    const result = await db.query(sql, params);
+    if (!result.rows[0])
+      throw new ClientError(
+        404,
+        `cannot find product with productId ${productId}`
+      );
+    res.json(result.rows[0]);
   } catch (err) {
     next(err);
   }
