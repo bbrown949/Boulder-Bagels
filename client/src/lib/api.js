@@ -14,6 +14,18 @@ export async function fetchDrinkCatalog() {
   return await res.json();
 }
 
+export async function fetchBagelCatalog() {
+  const res = await fetch('/api/bagelProducts');
+  if (!res.ok) throw new Error(`fetch Error ${res.status}`);
+  return await res.json();
+}
+
+export async function fetchShmearCatalog() {
+  const res = await fetch('/api/shmearProducts');
+  if (!res.ok) throw new Error(`fetch Error ${res.status}`);
+  return await res.json();
+}
+
 /**
  * Fetches a single product from the API.
  * @param {number} productId The ID of the product to fetch.
@@ -31,7 +43,6 @@ export async function fetchProduct(productId) {
  * @returns a join of products & shoppingCartItems table
  */
 export async function fetchCartItems(cartId) {
-  console.log(cartId);
   const res = await fetch(`/api/shoppingCartItems/${cartId}`);
   if (!res.ok) throw new Error(`fetch Error ${res.status}`);
   return await res.json();

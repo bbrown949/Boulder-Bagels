@@ -63,6 +63,42 @@ app.get('/api/drinkProducts', async (req, res, next) => {
   }
 });
 
+app.get('/api/bagelProducts', async (req, res, next) => {
+  try {
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"
+    where "category"='bagel'`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/api/shmearProducts', async (req, res, next) => {
+  try {
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"
+    where "category"='shmear'`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
 //  fetchProduct server call (productId)
 app.get('/api/products/:productId', async (req, res, next) => {
   try {

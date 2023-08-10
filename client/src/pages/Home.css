@@ -1,13 +1,15 @@
 .home-container {
   margin-top: 0;
-  height: 1100px;
-  max-width: 1750px;
+
+  /* height: 1100px; */
+  max-width: auto;
   flex-direction: column;
   justify-content: center;
 
   /* width: 700px;
   height: 250px; */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
   /* box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); */
@@ -48,7 +50,8 @@
   align-items: center;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  margin: 30px;
+
+  /* margin: 30px; */
 }
 
 .test-row {
@@ -73,13 +76,16 @@
 }
 
 .fb-image {
-  height: 50px;
+  height: 55px;
   padding-top: 30px;
   padding-right: 30px;
+  text-shadow: 1px 1px 1px black;
+  border-radius: 5px;
 }
 
 .ig-image {
-  height: 50px;
+  height: 55px;
+  text-shadow: 1px 1px 1px black;
 }
 
 .home-image1 {

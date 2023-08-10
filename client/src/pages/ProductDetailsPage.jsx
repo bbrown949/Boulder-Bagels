@@ -6,7 +6,6 @@ import { addToCart } from '../lib/addToCart';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import './ProductDetailsPage.css';
 import AppContext from '../components/AppContext';
@@ -83,7 +82,9 @@ export default function ProductDetailsPage() {
               <img src={imageUrl} alt={productName} className="image" />
             </div>
             <div className="details-container">
-              <h2>{productName}</h2>
+              <div className="details-product-name">
+                <h2>{productName}</h2>
+              </div>
               <h5 className="text-secondary">{toDollars(price)}</h5>
               <p className="long-description">{longDescription}</p>
             </div>
@@ -95,25 +96,27 @@ export default function ProductDetailsPage() {
                   <div className="qty-limit-txt">limit: 3 per customer</div>
                 )}
                 <Row>
-                  <Button className="counter-btn" onClick={decrementQuantity}>
-                    -
+                  <Button className="counter-minus" onClick={decrementQuantity}>
+                    Less
                   </Button>
                   <div className="count">{quantity}</div>
                   <div>
-                    <Button className="counter-btn" onClick={incrementQuantity}>
-                      +
+                    <Button
+                      className="counter-plus"
+                      onClick={incrementQuantity}>
+                      More
                     </Button>
                   </div>
                 </Row>
               </div>
-              <div>
-                <Link to="../cart">
-                  <Button className="btn" onClick={handleAddToCart}>
-                    Add to cart
-                  </Button>
-                </Link>
-              </div>
             </Col>
+            <div>
+              <Link to="../cart">
+                <Button className="add-to-cart-btn" onClick={handleAddToCart}>
+                  Add to cart
+                </Button>
+              </Link>
+            </div>
           </Row>
         </div>
       </div>

@@ -1,53 +1,55 @@
-import './CartPage.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import AppContext from '../../components/AppContext';
-import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { fetchCartItems, toDollars, removeItem } from '../../lib';
+import './CartPage.css';
+import { Link } from 'react-router-dom';
+import AppContext from '../../components/AppContext';
 
 export default function CartPage() {
   const { user } = useContext(AppContext);
   const [cart, setCart] = useState();
-  const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
   const cartId = user?.customerId;
-  let total = 0;
-  let items = 0;
+  let cartTotal = 0;
+  let cartItems = 0;
 
   useEffect(() => {
     async function loadCart() {
       try {
         const cart = await fetchCartItems(cartId);
         setCart(cart);
-      } catch (err) {
-        setError(err);
+      } catch (error) {
+        setError(error);
       } finally {
         setIsLoading(false);
       }
     }
-    // setIsLoading(true);
+    setIsLoading(true);
     loadCart();
-  }, [cartId, cart]);
+    // console.log(cartId);
+  }, [cartId]);
+
   if (isLoading) return <div>Loading...</div>;
   if (error) {
-    return <div>`Error Loading Cart: ${error.message}`</div>;
+    return <div>Error Loading Cart: {error.message}</div>;
   }
   if (!cart) return null;
-  // loops through the cart array to calculate the customers subtotal && quantity of items
+  //  subtotal && quantity of items
   cart[0] &&
     cart?.map((item) => {
-      total += item.price * item.quantity;
-      items += 1 * item.quantity;
-      return total && items;
+      cartTotal += item.price * item.quantity;
+      cartItems += 1 * item.quantity;
+      return cartTotal && cartItems;
     });
 
   async function handleRemoveItem(cartId, productId) {
     try {
       await removeItem(cartId, productId);
-    } catch (e) {
-      setError(e);
+    } catch (err) {
+      setError(err);
     }
   }
 
@@ -75,21 +77,18 @@ export default function CartPage() {
                 </Col>
               );
             })}
-          {/* Checks if cart is empty, displays a message with the option to take user back to shop */}
           {!cart[0] && (
             <>
               <Row className="empty-cart-container">
                 <Col className="empty-cart">
                   <div className="empty-cart-msg">
-                    <h3>...not hungry? 🤔</h3>
+                    <h3>Not Hungry? 🤔</h3>
                   </div>
                 </Col>
-                <Row className="back-to-shop-btn-row">
+                <Row>
                   <span className="empty-cart-msg">
                     <Link to="../eats">
-                      <button className="back-to-shop-btn">
-                        Check Out Our Food
-                      </button>
+                      <button className="back-to-shop-btn">Back to Shop</button>
                     </Link>
                   </span>
                 </Row>
@@ -98,14 +97,16 @@ export default function CartPage() {
           )}
           {/*   Checks if there's any items in the cart and conditionally renders the checkout section      */}
           {cart[0] && (
-            <Row className="checkout-row">
+            <Row className="hr">
               <div className="checkout">
                 <div className="total">
                   <div>
                     <div className="items">
-                      <u>{items} items</u>
+                      <u>{cartItems} items</u>
                     </div>
-                    <div className="subtotal">Sub-Total:{toDollars(total)}</div>
+                    <div className="subtotal">
+                      Sub-Total:{toDollars(cartTotal)}
+                    </div>
                   </div>
                 </div>
                 <div>-------------------- </div>
@@ -124,7 +125,8 @@ export default function CartPage() {
 }
 
 function CartItem({ product }) {
-  const { productName, quantity, imageUrl, price } = product;
+  const { productName, quantity, price, imageUrl } = product;
+
   return (
     <Col className="cart-item-container">
       <div>

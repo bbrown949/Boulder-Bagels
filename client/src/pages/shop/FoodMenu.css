@@ -10,34 +10,36 @@
 
 .food-container {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgb(19, 19, 19);
+
+  /* border: 2px solid rgb(19, 19, 19); */
 }
 
 .row {
+  display: flex;
   flex-wrap: wrap;
-  flex-basis: calc(100% / 3);
   width: 100%;
   height: auto;
-  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
 }
 
 .product {
+  /* padding-left: 100px; */
   border-radius: 15px;
-  width: 300px;
+  width: 340px;
   height: 350px;
-  margin: 100px;
+  margin: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  /* border: 2px solid rgb(19, 19, 19); */
 }
 
 .product img {
   width: 400px;
   border-radius: 15px;
-  border: 2px solid rgb(19, 19, 19);
   height: 300px;
   object-fit: contain;
 }
@@ -58,4 +60,26 @@
   color: red;
   letter-spacing: 4px;
   text-shadow: 2px 2px 2px black;
+}
+
+.card-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.card-text {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.product-container {
+  padding: 5px;
 }

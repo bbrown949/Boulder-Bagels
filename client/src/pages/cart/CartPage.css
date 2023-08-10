@@ -1,6 +1,6 @@
-/* * {
+* {
   margin: auto;
-} */
+}
 
 .row {
   padding-top: 20px;
@@ -88,4 +88,46 @@
 
 .btn-space {
   padding: 20px;
+}
+
+.card-body {
+  font-size: 20px;
+}
+
+.cart-item-details {
+  padding-top: 10px;
+}
+
+.remove {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.checkout-row {
+  padding-bottom: 30px;
+}
+
+.empty-cart-msg {
+  padding-top: 6rem;
+  font-size: 40px;
+}
+
+.back-to-shop-btn {
+  /* padding: 30px; */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 20px;
+  font-size: 30px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+}
+
+.back-to-shop-btn-row {
+  padding-bottom: 20rem;
 }

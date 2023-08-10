@@ -8,9 +8,10 @@ import Col from 'react-bootstrap/Col';
 function Home() {
   return (
     <Container className="home-container">
+      <div className="menu-header">
+        <h2 className="eats-header">Welcome</h2>
+      </div>
       <div className="header-container">
-        <h2 className="home-header-text"> Welcome to Boulder Bagels </h2>
-        <p className="home-p-text"> Made Fresh.</p>
         <Row className="test-row">
           <Col className="col-half">
             <div classsName="quote1">

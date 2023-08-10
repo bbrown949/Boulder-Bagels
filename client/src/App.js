@@ -1,6 +1,8 @@
 // import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
+import BagelMenu from './pages/shop/BagelMenu';
+import ShmearMenu from './pages/shop/ShmearMenu';
 import FoodMenu from './pages/shop/FoodMenu';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import About from './pages/About';
@@ -26,7 +28,6 @@ function App() {
       if (auth) {
         const a = JSON.parse(auth);
         const customer = await fetchUser(a.user.username);
-        console.log(customer);
         setUser(customer);
         setToken(a.token);
         const cart = await fetchCartItems(customer.customerId);
@@ -35,7 +36,7 @@ function App() {
       setIsAuthorizing(false);
     }
     setCustomer();
-  }, []);
+  }, [user]);
 
   if (isAuthorizing) return null;
 
@@ -66,6 +67,8 @@ function App() {
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/:productId" element={<ProductDetailsPage />} />
+          <Route path="/bagels" element={<BagelMenu />} />
+          <Route path="/shmears" element={<ShmearMenu />} />
           <Route path="/eats" element={<FoodMenu />} />
           <Route path="/drinks" element={<DrinkMenu />} />
           <Route path="sign-up" element={<Signup />} />

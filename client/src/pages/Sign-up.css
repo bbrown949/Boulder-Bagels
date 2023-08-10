@@ -1,0 +1,10 @@
+.sign-up-container {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+}

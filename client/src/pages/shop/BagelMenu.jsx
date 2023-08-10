@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchCatalog } from '../../lib';
+import { fetchBagelCatalog } from '../../lib';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import './FoodMenu.css';
 
-export default function FoodMenu() {
+export default function BagelMenu() {
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -14,7 +14,7 @@ export default function FoodMenu() {
   useEffect(() => {
     async function loadCatalog() {
       try {
-        const products = await fetchCatalog();
+        const products = await fetchBagelCatalog();
         setProducts(products);
       } catch (err) {
         setError(err);
@@ -31,7 +31,7 @@ export default function FoodMenu() {
   return (
     <Container className="food-container">
       <div className="menu-header">
-        <h2 className="eats-header"> Deluxe Sandwiches 🤤 </h2>
+        <h2 className="eats-header"> Bagels </h2>
       </div>
       <Row className="row">
         {products?.map((product) => (

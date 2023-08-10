@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchDrinkCatalog, toDollars } from '../../lib';
+import { fetchDrinkCatalog } from '../../lib';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import './FoodMenu.css';
 
@@ -32,7 +31,7 @@ export default function DrinkMenu() {
   return (
     <Container className="food-container">
       <div className="menu-header">
-        <h2 className="eats-header">Drink Menu</h2>
+        <h2 className="eats-header">Beverages</h2>
       </div>
       <Row className="row">
         {products?.map((product) => (
@@ -46,7 +45,7 @@ export default function DrinkMenu() {
 }
 
 function Product({ product }) {
-  const { productId, productName, price, imageUrl, description } = product;
+  const { productId, productName, imageUrl, description } = product;
 
   return (
     <Link
@@ -55,8 +54,9 @@ function Product({ product }) {
       <img src={imageUrl} className="image card-img-top" alt={productName} />
       <div className="card-body">
         <h5 className="card-title">{productName}</h5>
-        <p className="card-text text-secondary">{toDollars(price)}</p>
-        <p className="description card-text">{description}</p>
+        <p className="description card-text">
+          <i>{description}</i>
+        </p>
       </div>
     </Link>
   );
