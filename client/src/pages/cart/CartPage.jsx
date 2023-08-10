@@ -35,7 +35,7 @@ export default function CartPage() {
     return <div>`Error Loading Cart: ${error.message}`</div>;
   }
   if (!cart) return null;
-  // loops through the cart array to calculate the customers subtotal && quantity of items
+  // loops through the cart array to calculate the customers subtotal && how many items
   cart[0] &&
     cart?.map((item) => {
       total += item.price * item.quantity;
@@ -96,7 +96,7 @@ export default function CartPage() {
               </Row>
             </>
           )}
-          {/*   Checks if there's any items in the cart and conditionally renders the checkout section      */}
+          {/*   Checks if there are items in the cart and conditionally renders the checkout sec      */}
           {cart[0] && (
             <Row className="checkout-row">
               <div className="checkout">
