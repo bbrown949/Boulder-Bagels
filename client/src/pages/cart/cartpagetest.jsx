@@ -54,7 +54,7 @@ export default function CartPage() {
   }
 
   return (
-    <Container className="container" fluid>
+    <Container className="contdainer" fluid>
       <Container className="cart-container" fluid>
         <Col className="menu-header">
           <h2 className="cart-header">Your Cart Items</h2>
