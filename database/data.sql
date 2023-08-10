@@ -76,56 +76,56 @@ insert into "products" (
 ), (
   'Orange Juice',
   299,
-  'drink',
+  'drinks',
   '/images/orange.jpg',
   'Freshly squeezed every morning.',
   'Get your morning started off right and wash down your breakfast egg sandwich with a free pour Orange Juice.'
 ),   (
   'Coffee Of The Day',
   199,
-  'drink',
+  'drinks',
   '/images/coffeeOfDay.jpg',
   'Pep up your step.',
-  'Why be boring? Go beyond “regular or decaf” and explore the world with our Coffee of the Day. These carefully curated coffees and seasonal favorites are brewed every hour to make sure you get a fresh cup, any time of day.'
+  'Why be boring?? Go beyond “regular or decaf” and explore the world with our Coffee of the Day. These carefully curated coffees and seasonal favorites are brewed every hour to make sure you get a fresh cup, any time of day.'
 ),  (
   'Vanilla Cream Cold Brew',
   499,
-  'drink',
+  'drinks',
   '/images/vanillaCreamColdBrew.jpg',
   'Staff Favorite.',
   'A classic with a sweet twist. We add vanilla and cream to our Classic Cold Brew and serve over ice for a delicious and craveable drink.'
 ), (
   'Hot Chocolate',
   199,
-  'drink',
+  'drinks',
   '/images/hotChocolate.jpg',
   'Excellent, anytime.',
   'Go ahead, we wont tell a soul! Nothing comforts like a Hot Chocolate. As cozy as your favorite slippers, every Hot Chocolate is made to order – pick your favorite chocolate (milk or white), then top it off with whipped cream.'
 ), (
   'Chocolate Coffee Shake',
   599,
-  'drink',
+  'drinks',
   '/images/chocShake.jpg',
   'Get in my belly.',
   'For a refreshing frozen drink with a kick of caffeine, we blend our Classic Cold Brew with chocolate and top with whipped cream (and an extra chocolate drizzle, for good measure).'
 ), (
   'Hot Tea',
   199,
-  'drink',
+  'drinks',
   '/images/hotTea.jpg',
   'Relaxing and calming.',
   'Ready for a steaming cup of comfort? Whatever you’re craving, we’ve got your “cup of tea!” Our Hot Tea selections range from herbal to black, simple to full-flavored.'
 ), (
   'Lemonade',
   299,
-  'drink',
+  'drinks',
   '/images/lemonade.jpg',
   'Just like Mom makes it.',
   'Looking for a zesty kick to a refreshing drink? Try our refreshing lemonade and give your taste buds a kick.'
 ), (
   'StrawBanana Smoothie',
   499,
-  'drink',
+  'drinks',
   '/images/strawberryBananaSmoothie.jpg',
   'One word. Yum.',
   'When you need a nutritious, refreshing boost, try our Strawberry Banana Smoothie. We blend bright red strawberries and potassium-rich bananas with low-fat yogurt to create a healthy pick-me-up that’s perfect any time of day.'

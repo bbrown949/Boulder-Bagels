@@ -55,7 +55,7 @@ app.get('/api/drinkProducts', async (req, res, next) => {
     "description",
     "longDescription"
     from "products"
-    where "category"='drink'`;
+    where "category"='drinks'`;
     const result = await db.query(sql);
     res.json(result.rows);
   } catch (err) {
