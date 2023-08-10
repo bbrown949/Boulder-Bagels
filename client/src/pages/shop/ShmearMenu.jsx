@@ -31,7 +31,7 @@ export default function ShmearMenu() {
   return (
     <Container className="food-container">
       <div className="menu-header">
-        <h2 className="eats-header">Beverages</h2>
+        <h2 className="eats-header">Shmears</h2>
       </div>
       <Row className="row">
         {products?.map((product) => (
