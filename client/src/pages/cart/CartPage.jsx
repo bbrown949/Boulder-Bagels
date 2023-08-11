@@ -104,7 +104,7 @@ export default function CartPage() {
                 <div className="total">
                   <div>
                     <div className="items">
-                      <u>{items} items</u>
+                      <u>Items: {items} </u>
                     </div>
                     <div className="subtotal">Sub-Total:{toDollars(total)}</div>
                   </div>
