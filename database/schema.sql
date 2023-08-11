@@ -6,7 +6,7 @@ DROP SCHEMA "public" CASCADE;
 
 CREATE SCHEMA "public";
 
-CREATE TABLE "products" (
+CREATE TABLE "public"."products" (
 	"productName" TEXT NOT NULL,
 	"price" real NOT NULL,
 	"category" TEXT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE "products" (
 
 
 
-CREATE TABLE "customers" (
+CREATE TABLE "public"."customers" (
 	"customerId" serial NOT NULL,
 	"username" TEXT NOT NULL UNIQUE,
 	"hashedPassword" TEXT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE "customers" (
 
 
 
-CREATE TABLE "shoppingCart" (
+CREATE TABLE "public"."shoppingCart" (
 	"customerId" int NOT NULL,
 	"cartId" serial NOT NULL,
 	CONSTRAINT "shoppingCart_pk" PRIMARY KEY ("cartId")
@@ -43,7 +43,7 @@ CREATE TABLE "shoppingCart" (
 
 
 
-CREATE TABLE "shoppingCartItems" (
+CREATE TABLE "public"."shoppingCartItems" (
 	"productId" int NOT NULL,
   "quantity" int NOT NULL,
 	"cartId" int NOT NULL,

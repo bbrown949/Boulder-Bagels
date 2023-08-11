@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './ProductDetailsPage.css';
 import AppContext from '../components/AppContext';
+import CircleLoader from '../components/CircleLoader';
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -34,7 +35,7 @@ export default function ProductDetailsPage() {
     loadProduct(productId);
   }, [productId, setProduct]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <CircleLoader />;
 
   if (error) {
     return (
@@ -71,11 +72,7 @@ export default function ProductDetailsPage() {
       <div className="card shadow-sm">
         <div className="card-body">
           <Row className="row">
-            <div className="col">
-              <Link to="/eats" className="btn text-secondary">
-                Back to eats
-              </Link>
-            </div>
+            <div className="col"></div>
           </Row>
           <div className="row mb-4">
             <div className="">

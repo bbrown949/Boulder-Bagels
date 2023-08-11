@@ -6,6 +6,7 @@ import AppContext from '../../components/AppContext';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { fetchCartItems, toDollars, removeItem } from '../../lib';
+import CircleLoader from '../../components/CircleLoader';
 
 export default function CartPage() {
   const { user } = useContext(AppContext);
@@ -30,7 +31,7 @@ export default function CartPage() {
     // setIsLoading(true);
     loadCart();
   }, [cartId, cart]);
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <CircleLoader />;
   if (error) {
     return <div>`Error Loading Cart: ${error.message}`</div>;
   }
@@ -88,7 +89,7 @@ export default function CartPage() {
                   <span className="empty-cart-msg">
                     <Link to="../eats">
                       <button className="back-to-shop-btn">
-                        Check Out Our Food
+                        Navigate to Home
                       </button>
                     </Link>
                   </span>

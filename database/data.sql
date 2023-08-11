@@ -37,7 +37,7 @@ insert into "products" (
   'sandwhich',
   '/images/003.png',
   'Grab your Pitchfork.',
-  'Dig in to this inspired-by-the farm breakfast combo. Our Farmhouse Signature Breakfast Sandwich starts with cage-free eggs, thick-cut bacon, smoked ham and cheddar cheese, then gets a back-to-the-farm finish with country pepper shmear on a Cheesy Hash Brown Gourmet Bagel.'
+  'Dig in to this inspired-by-the farm breakfast combo. Our Farmhouse Signature Breakfast Sandwich starts with cage-free eggs, thick-cut bacon, smoked ham and cheddar cheese, then gets a back-to-the-farm finish with country pepper shmear on a bagel of your choice.'
 ), (
   'Avocado Egg Sandwich',
   599,
@@ -65,7 +65,7 @@ insert into "products" (
   'sandwhich',
   '/images/006.png',
   'Olé! Olé! Olé!',
-  'Say "Olé!" to the new day with our Chorizo Sunrise Signature Breakfast Sandwich! Take your taste buds on a trip south-of-the-border with Savory Chorizo Sausage, Smashed Avocado, Cheddar Cheese, Cage-Free Eggs and our Jalapeño Salsa Shmear, all served on a Green Chile Gourmet Bagel.'
+  'Say "Olé!" to the new day with our Chorizo Sunrise Breakfast Sandwich! Take your taste buds on a trip south-of-the-border with Savory Chorizo Sausage, Smashed Avocado, Cheddar Cheese, Cage-Free Eggs and our Jalapeño Salsa Shmear, all served on your choice of bagel.'
 ), (
   'Avocado Veg Out',
   599,
@@ -169,7 +169,7 @@ insert into "products" (
   299,
   'bagel',
   '/images/onion.png',
-  'Never dull, always delish.!',
+  'Never dull, always delish!',
   'This onion wont make you cry, unless its from tears of joy! Our Onion Bagel is the perfect savory base for your choice of shmears. Never dull, always delish, this tried-and-true classic bagel delivers powerful flavor with every bite!'
 ), (
   'Cinnamon Sugar',

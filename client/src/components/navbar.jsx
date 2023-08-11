@@ -18,7 +18,7 @@ export default function Navbar() {
         </div>
         <div className="col-two">
           <Link to="./bagels">Bagels</Link>
-          <Link to="./shmears">Shmears</Link>
+          <Link to="./shmears">Shmear</Link>
           <Link to="./eats">Sandwiches</Link>
           <Link to="./drinks">Drinks</Link>
           <Link to="./about">Press</Link>

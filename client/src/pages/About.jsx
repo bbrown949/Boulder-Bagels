@@ -38,7 +38,9 @@ export default function About() {
               area, and when I started thinking about my bagel business, the
               name really stuck out to me and conveniently no one owned it yet.”{' '}
             </i>
+            <div classname="spacing" />
           </p>
+
           <img
             src="/images/farmers.png"
             className="farmers-image"

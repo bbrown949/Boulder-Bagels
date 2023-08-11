@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import './FoodMenu.css';
+import CircleLoader from '../../components/CircleLoader';
 
 export default function ShmearMenu() {
   const [products, setProducts] = useState();
@@ -26,12 +27,12 @@ export default function ShmearMenu() {
     loadCatalog();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <CircleLoader />;
   if (error) return <div>Error Loading Menu: {error.message}</div>;
   return (
     <Container className="food-container">
       <div className="menu-header">
-        <h2 className="eats-header">Shmears</h2>
+        <h2 className="eats-header">Shmear</h2>
       </div>
       <Row className="row">
         {products?.map((product) => (

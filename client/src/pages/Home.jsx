@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/Container';
 import './Home.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Carousel from '../components/Carousel';
 
 function Home() {
   return (
     <Container className="home-container">
       <div className="menu-header">
-        <h2 className="eats-header">Welcome</h2>
+        <h2 className="eats-header">Welcome!</h2>
       </div>
       <div className="header-container">
         <Row className="test-row">
@@ -17,34 +18,31 @@ function Home() {
             <div classsName="quote1">
               <i>
                 "Any bagel beats a New Jersey bagel, but no bagel beats a New
-                York bagel, except for a Boulder Bagel." - Lane Faison, Boulder
-                CO
+                York bagel, except for a Boulder Bagel."<br></br> <br></br>Lane
+                Faison - Boulder, Colorado
               </i>
             </div>
           </Col>
 
-          <Col classname="col-half">
-            <img
-              src="/images/homeImage.png"
-              className="home-image1"
-              alt="productName"></img>
+          <Col classname="col-half2">
+            <Carousel className="carousel" />
           </Col>
         </Row>
-        <Row className="test-row">
+        {/* <Row className="test-row">
           <Col classname="col-half">
             <img
               src="/images/homeImage.png"
               className="home-image"
               alt="productName"></img>
-          </Col>
-          <Col className="col-half">
+          </Col> */}
+        {/* <Col className="col-half">
             <i>
               "These bagels remind me of my fav bagel shop in LA. They are super
               fresh, soft, and chewy! I cannot recommend them more!!!" - Laura
               Oakley, Erie, CO
             </i>
-          </Col>
-        </Row>
+          </Col> */}
+        {/* </Row> */}
         <div className="home-spacing"></div>
         <Link to="/eats">
           <button className="home-order-btn"> ORDER NOW </button>

@@ -131,3 +131,19 @@
 .back-to-shop-btn-row {
   padding-bottom: 20rem;
 }
+
+.loading {
+  font-weight: bold;
+  color: red;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l 1s steps(4) infinite;
+}
+
+@keyframes l {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}

@@ -20,7 +20,7 @@
 .home-order-btn {
   padding-left: 30px;
   padding-right: 30px;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 3px;
   font-weight: bold;
   background-color: red;
@@ -31,13 +31,13 @@
 
 .col-half {
   font-family: 'Tiempos Headline', sans-serif;
-  font-weight: 300;
   color: black;
-  padding-top: 25px;
   padding-left: 75px;
   max-width: 45%;
-  font-size: 25px;
   width: 750px;
+  font-size: 30px;
+  padding-top: 40px;
+  font-weight: bolder;
 }
 
 .header-container {
@@ -98,6 +98,6 @@
   height: 30px;
 }
 
-.quote1 {
-  font-size: 16px;
+.carousel {
+  padding-top: 30px;
 }
