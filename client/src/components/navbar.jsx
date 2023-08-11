@@ -21,6 +21,9 @@ export default function Navbar() {
           <Link to="./shmears">Shmear</Link>
           <Link to="./eats">Sandwiches</Link>
           <Link to="./drinks">Drinks</Link>
+          <Link to="https://www.facebook.com/BoulderBagels/reviews">
+            Reviews
+          </Link>
           <Link to="./about">Press</Link>
           <Link to="./cart">
             <ShoppingCart size={32} />
