@@ -58,6 +58,7 @@
   border-bottom: 10px;
   padding-bottom: 10px;
   font-weight: bold;
+  font-size: 30px;
 }
 
 .subtotal {
@@ -96,6 +97,11 @@
 
 .cart-item-details {
   padding-top: 10px;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
 }
 
 .remove {

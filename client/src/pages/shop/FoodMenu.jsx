@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchCatalog } from '../../lib';
+import { fetchSandwichCatalog } from '../../lib';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,7 +15,7 @@ export default function FoodMenu() {
   useEffect(() => {
     async function loadCatalog() {
       try {
-        const products = await fetchCatalog();
+        const products = await fetchSandwichCatalog();
         setProducts(products);
       } catch (err) {
         setError(err);

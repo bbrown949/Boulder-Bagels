@@ -2,20 +2,20 @@
  * Fetches all products from the API.
  * @returns Promise that resolves to an array of products.
  */
-export async function fetchCatalog() {
-  const res = await fetch('/api/foodProducts');
+export async function fetchBagelCatalog() {
+  const res = await fetch('/api/bagelProducts');
+  if (!res.ok) throw new Error(`fetch Error ${res.status}`);
+  return await res.json();
+}
+
+export async function fetchSandwichCatalog() {
+  const res = await fetch('/api/sandwichProducts');
   if (!res.ok) throw new Error(`fetch Error ${res.status}`);
   return await res.json();
 }
 
 export async function fetchDrinkCatalog() {
   const res = await fetch('/api/drinkProducts');
-  if (!res.ok) throw new Error(`fetch Error ${res.status}`);
-  return await res.json();
-}
-
-export async function fetchBagelCatalog() {
-  const res = await fetch('/api/bagelProducts');
   if (!res.ok) throw new Error(`fetch Error ${res.status}`);
   return await res.json();
 }

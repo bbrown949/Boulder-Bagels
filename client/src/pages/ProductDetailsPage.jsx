@@ -44,9 +44,10 @@ export default function ProductDetailsPage() {
       </div>
     );
   }
+
+  //code for increasing and decreasing quantity
   function incrementQuantity() {
     quantity = quantity + 1;
-    if (quantity > 3) setQuantity((quantity = 3));
     setQuantity(quantity);
   }
   function decrementQuantity() {
@@ -59,6 +60,7 @@ export default function ProductDetailsPage() {
   if (!product) return null;
   const { productName, price, imageUrl, longDescription } = product;
 
+  /// Add to cart function user.customerId = cartId
   async function handleAddToCart() {
     try {
       await addToCart(productId, quantity, user.customerId);
@@ -89,9 +91,6 @@ export default function ProductDetailsPage() {
           <Row className="row">
             <Col className="quantity-col">
               <div className="space-between">
-                {quantity === 3 && (
-                  <div className="qty-limit-txt">limit: 3 per customer</div>
-                )}
                 <Row>
                   <Button className="counter-minus" onClick={decrementQuantity}>
                     Less

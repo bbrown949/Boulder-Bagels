@@ -28,7 +28,6 @@ export default function CartPage() {
         setIsLoading(false);
       }
     }
-    // setIsLoading(true);
     loadCart();
   }, [cartId, cart]);
   if (isLoading) return <CircleLoader />;
@@ -36,6 +35,7 @@ export default function CartPage() {
     return <div>`Error Loading Cart: ${error.message}`</div>;
   }
   if (!cart) return null;
+
   // loops through the cart array to calculate the customers subtotal && how many items
   cart[0] &&
     cart?.map((item) => {
@@ -87,7 +87,7 @@ export default function CartPage() {
                 </Col>
                 <Row className="back-to-shop-btn-row">
                   <span className="empty-cart-msg">
-                    <Link to="../eats">
+                    <Link to="/">
                       <button className="back-to-shop-btn">
                         Navigate to Home
                       </button>

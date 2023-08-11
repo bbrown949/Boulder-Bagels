@@ -27,7 +27,7 @@ app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
 //  fetchProducts server call
-app.get('/api/foodProducts', async (req, res, next) => {
+app.get('/api/sandwichProducts', async (req, res, next) => {
   try {
     const sql = `
     select "productId",

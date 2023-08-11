@@ -74,11 +74,11 @@ insert into "products" (
   'Feeling Healthy?',
   'Dont stress about a healthy lunch! Our Avocado Veg Out has every crispy, healthy, gorgeous veggie you could want (tomato, lettuce, cucumbers and red onions), all dressed up for lunch with avocado and Garden Veggie Shmear.'
 ), (
-  'Orange Juice',
+  'Freshly Squeezed OJ',
   299,
   'drinks',
   '/images/orange.jpg',
-  'Freshly squeezed every morning.',
+  'From farmers to you!',
   'Get your morning started off right and wash down your breakfast egg sandwich with a free pour Orange Juice.'
 ),   (
   'Coffee Of The Day',
@@ -144,7 +144,7 @@ insert into "products" (
   'Taste the roast.',
   'Hungry? Just say "Open Sesame" and, POOF ... bagel magic! Our Sesame Bagel is simple-yet-loveable, the favorite choice for hungry folks everywhere who want the perfect canvas to layer flavor onto. Its a crunchy, satisfying magic carpet ride, trust us!'
 ), (
-  'Plain',
+  'Perfectly Plain',
   299,
   'bagel',
   '/images/plain.png',

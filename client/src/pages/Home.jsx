@@ -17,9 +17,8 @@ function Home() {
           <Col className="col-half">
             <div classsName="quote1">
               <i>
-                "Any bagel beats a New Jersey bagel, but no bagel beats a New
-                York bagel, except for a Boulder Bagel."<br></br> <br></br>Lane
-                Faison - Boulder, Colorado
+                "No bagel beats a New York bagel... except for a Boulder Bagel."
+                <br></br> <br></br>Lane Faison - Boulder, Colorado
               </i>
             </div>
           </Col>
@@ -44,9 +43,9 @@ function Home() {
           </Col> */}
         {/* </Row> */}
         <div className="home-spacing"></div>
-        <Link to="/eats">
+        {/* <Link to="/eats">
           <button className="home-order-btn"> ORDER NOW </button>
-        </Link>
+        </Link> */}
         <div className="social-row">
           <a
             href="https://www.facebook.com/BoulderBagels"
@@ -66,7 +65,26 @@ function Home() {
               className="ig-image"
               alt="instagram"></img>
           </a>
+          <a
+            href="https://www.facebook.com/BoulderBagels/reviews"
+            target="_blank"
+            rel="noreferrer">
+            <img
+              src="/images/reviews.png"
+              className="reviews-image"
+              alt="reviews"></img>
+          </a>
+          <a
+            href="https://realestateraechel.wordpress.com/2019/12/10/featured-erie-business-boulder-bagels/"
+            target="_blank"
+            rel="noreferrer">
+            <img
+              src="/images/news.png"
+              className="news-image"
+              alt="press"></img>
+          </a>
         </div>
+        <div className="reviews"></div>
       </div>
     </Container>
   );
