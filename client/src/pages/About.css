@@ -81,3 +81,9 @@
 .spacing {
   height: 20px;
 }
+
+@media only screen and (width >= 1000px) {
+  li {
+    width: 25%;
+  }
+}

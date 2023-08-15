@@ -26,7 +26,25 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-//  fetchProducts server call
+//  fetch Products server call
+app.get('/api/bagelProducts', async (req, res, next) => {
+  try {
+    const sql = `
+    select "productId",
+    "productName",
+    "price",
+    "imageUrl",
+    "description",
+    "longDescription"
+    from "products"
+    where "category"='bagel'`;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get('/api/sandwichProducts', async (req, res, next) => {
   try {
     const sql = `
@@ -56,24 +74,6 @@ app.get('/api/drinkProducts', async (req, res, next) => {
     "longDescription"
     from "products"
     where "category"='drinks'`;
-    const result = await db.query(sql);
-    res.json(result.rows);
-  } catch (err) {
-    next(err);
-  }
-});
-
-app.get('/api/bagelProducts', async (req, res, next) => {
-  try {
-    const sql = `
-    select "productId",
-    "productName",
-    "price",
-    "imageUrl",
-    "description",
-    "longDescription"
-    from "products"
-    where "category"='bagel'`;
     const result = await db.query(sql);
     res.json(result.rows);
   } catch (err) {

@@ -21,6 +21,8 @@
   height: auto;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .product {
@@ -82,4 +84,10 @@ a {
 
 .product-container {
   padding: 5px;
+}
+
+@media only screen and (width >= 1000px) {
+  li {
+    width: 25%;
+  }
 }

@@ -11,12 +11,10 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="links">
-        <div className="col-one">
+        <div className="col-two">
           <Link to="./">
             <img className="bblogo" src={bbLogo} alt="logo"></img>
           </Link>
-        </div>
-        <div className="col-two">
           <Link to="./bagels">Bagels</Link>
           <Link to="./shmears">Shmear</Link>
           <Link to="./eats">Sandwiches</Link>

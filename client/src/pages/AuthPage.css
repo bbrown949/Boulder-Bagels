@@ -26,3 +26,9 @@
   align-items: center;
   font-size: 30px;
 }
+
+@media only screen and (width >= 1000px) {
+  li {
+    width: 25%;
+  }
+}

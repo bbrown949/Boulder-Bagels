@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -39,5 +40,11 @@ body {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (width >= 1000px) {
+  li {
+    width: 25%;
   }
 }

@@ -14,3 +14,9 @@ svg {
   position: relative;
   border-radius: 25px;
 }
+
+@media only screen and (width >= 1000px) {
+  li {
+    width: 25%;
+  }
+}
