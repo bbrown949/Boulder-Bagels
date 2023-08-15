@@ -26,7 +26,6 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-//  fetch Products server call
 app.get('/api/bagelProducts', async (req, res, next) => {
   try {
     const sql = `
@@ -99,7 +98,6 @@ app.get('/api/shmearProducts', async (req, res, next) => {
   }
 });
 
-//  fetchProduct server call (productId)
 app.get('/api/products/:productId', async (req, res, next) => {
   try {
     const productId = Number(req.params.productId);
@@ -128,7 +126,6 @@ app.get('/api/products/:productId', async (req, res, next) => {
   }
 });
 
-// addToCart server call
 app.post('/api/cart/:cartId', async (req, res, next) => {
   try {
     const { productId, quantity, cartId } = req.body;
@@ -146,7 +143,6 @@ app.post('/api/cart/:cartId', async (req, res, next) => {
   }
 });
 
-// cartItems server call
 app.get('/api/shoppingCartItems/:cartId', async (req, res, next) => {
   const cart = req.params.cartId;
   try {
@@ -164,7 +160,6 @@ app.get('/api/shoppingCartItems/:cartId', async (req, res, next) => {
   }
 });
 
-// deletes item from cart
 app.delete('/api/delete/:cartId/:productId', async (req, res, next) => {
   try {
     const { cartId, productId } = req.body;
@@ -180,7 +175,6 @@ app.delete('/api/delete/:cartId/:productId', async (req, res, next) => {
   }
 });
 
-// relates to addItemQuantity server call
 app.patch('/api/cart/:cartId', async (req, res, next) => {
   try {
     const { cartId, productId, quantity } = req.body;
@@ -199,8 +193,6 @@ app.patch('/api/cart/:cartId', async (req, res, next) => {
     next(err);
   }
 });
-
-/// //
 
 app.post('/api/auth/sign-up', async (req, res, next) => {
   try {
@@ -230,7 +222,6 @@ app.post('/api/auth/sign-up', async (req, res, next) => {
   }
 });
 
-// relates to sign in server call
 app.post('/api/auth/sign-in', async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -261,8 +252,6 @@ app.post('/api/auth/sign-in', async (req, res, next) => {
   }
 });
 
-///
-
 app.get('/api/customers/:username', async (req, res, next) => {
   const user = req.params.username;
   if (!user) throw new ClientError(400, 'user not found');
@@ -279,8 +268,6 @@ app.get('/api/customers/:username', async (req, res, next) => {
     next(err);
   }
 });
-
-///
 
 app.get('/api/drinkProducts/:productId', async (req, res, next) => {
   try {

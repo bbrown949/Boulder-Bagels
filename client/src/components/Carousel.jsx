@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Carousel.css';
 
 export default function Carousel() {
-  const [activeIndex, setIndex] = useState(0);
+  const [activeImage, setImage] = useState(0);
   const images = [
     {
       id: 0,
@@ -20,15 +20,15 @@ export default function Carousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((activeIndex + 1) % images.length);
+      setImage((activeImage + 1) % images.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [activeIndex, images.length]);
+  }, [activeImage, images.length]);
 
   return (
     <>
       <img
-        src={images[activeIndex].src}
+        src={images[activeImage].src}
         className="carousel-image"
         alt="boulder-bagels"
       />

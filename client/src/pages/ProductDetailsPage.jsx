@@ -45,7 +45,6 @@ export default function ProductDetailsPage() {
     );
   }
 
-  //code for increasing and decreasing quantity
   function incrementQuantity() {
     quantity = quantity + 1;
     setQuantity(quantity);
@@ -60,7 +59,6 @@ export default function ProductDetailsPage() {
   if (!product) return null;
   const { productName, price, imageUrl, longDescription } = product;
 
-  /// Add to cart function user.customerId = cartId
   async function handleAddToCart() {
     try {
       await addToCart(productId, quantity, user.customerId);

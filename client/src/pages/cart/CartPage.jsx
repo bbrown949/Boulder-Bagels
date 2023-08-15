@@ -36,7 +36,6 @@ export default function CartPage() {
   }
   if (!cart) return null;
 
-  // loops through the cart array to calculate the customers subtotal && how many items
   cart[0] &&
     cart?.map((item) => {
       total += item.price * item.quantity;
@@ -76,7 +75,6 @@ export default function CartPage() {
                 </Col>
               );
             })}
-          {/* Checks if cart is empty, displays a message with the option to take user back to shop */}
           {!cart[0] && (
             <>
               <Row className="empty-cart-container">
@@ -97,7 +95,6 @@ export default function CartPage() {
               </Row>
             </>
           )}
-          {/*   Checks if there are items in the cart and conditionally renders the checkout sec      */}
           {cart[0] && (
             <Row className="checkout-row">
               <div className="checkout">
