@@ -6,7 +6,7 @@ export default function Carousel() {
   const images = [
     {
       id: 0,
-      src: 'https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-6/294340489_467253532072944_6282465472459727066_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=be3454&_nc_ohc=gg7Vk8cdJT0AX-WhWBR&_nc_ht=scontent-ord5-2.xx&oh=00_AfDiXOgkGxjyBv_cnT6HGISRbufIMOiykMADe41EaN0Qbg&oe=64DB4561',
+      src: 'https://scontent-bos5-1.xx.fbcdn.net/v/t1.6435-9/132957034_698439644191329_8267828711774613259_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7f8c78&_nc_ohc=hzrNFTjfVxkAX_qq5zj&_nc_ht=scontent-bos5-1.xx&oh=00_AfAl7CCpnMeL7_4wg97OnNs9TrkTV2UpykKJbZF62AAs5A&oe=65032632',
     },
     {
       id: 1,
@@ -14,7 +14,7 @@ export default function Carousel() {
     },
     {
       id: 2,
-      src: 'https://scontent-ord5-2.xx.fbcdn.net/v/t1.6435-9/120013686_635187650516529_9200105756186533229_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7f8c78&_nc_ohc=Kdw7eE26FHkAX8lXBf_&_nc_ht=scontent-ord5-2.xx&oh=00_AfANErl92Y9FVZuPj60FDp-CSEYNzYhitWcSYzpe-K80jw&oe=64FD8231',
+      src: 'https://scontent-bos5-1.xx.fbcdn.net/v/t39.30808-6/294340489_467253532072944_6282465472459727066_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=be3454&_nc_ohc=Hme4jhY120oAX963iBf&_nc_ht=scontent-bos5-1.xx&oh=00_AfBttuSLuXos34zhAC3OpsCoFoYIsuFDTJ4cli1xKEcTEA&oe=64E13421',
     },
   ];
 

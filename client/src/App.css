@@ -4,6 +4,15 @@
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.layout-center {
+  margin: 0 auto;
+  width: 900px;
+}
+
 body {
   height: 100%;
 }
