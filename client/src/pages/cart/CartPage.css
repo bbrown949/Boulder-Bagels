@@ -139,7 +139,7 @@
 }
 
 .loading {
-  font-weight: bold;
+  font-weight: bolder;
   color: red;
   display: inline-block;
   font-family: monospace;
